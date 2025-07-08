@@ -1,0 +1,48 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>은호의 두돌 초대장 🎂</title>
+  <style>
+    body { font-family: sans-serif; background: #fff8f0; max-width: 500px; margin: auto; padding: 20px; }
+    .eunho-photo { width: 100%; max-width: 300px; border-radius: 20px; display: block; margin: auto; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    h1, .party-info, form { text-align: center; }
+    input, select { width: 100%; padding: 10px; border-radius: 10px; margin-top: 10px; }
+    button { background: #ffa07a; border: none; padding: 10px 20px; border-radius: 10px; cursor: pointer; color: #fff; }
+    #result { margin-top: 20px; text-align: center; color: green; }
+  </style>
+</head>
+<body>
+
+  <img src="images/eunho.jpg" alt="은호의 사진" class="eunho-photo">
+
+  <h1>은호의 두돌 파티에 초대합니다 🎈</h1>
+  <div class="party-info">
+    <p>🗓️ 2025년 7월 20일 (일)</p>
+    <p>📍 서울시 강남구 어디빌딩 5층</p>
+    <p>⏰ 오후 2시 ~ 5시</p>
+  </div>
+
+  <form id="rsvpForm">
+    <input type="text" id="name" placeholder="이름을 입력해주세요" required>
+    <select id="attendance">
+      <option value="참석">참석</option>
+      <option value="불참">불참</option>
+    </select>
+    <button type="submit">응답하기</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const attendance = document.getElementById('attendance').value;
+      document.getElementById('result').innerText = `${name} 님의 응답이 저장되었습니다: ${attendance}`;
+    });
+  </script>
+
+</body>
+</html>
