@@ -137,9 +137,8 @@
 
 <!-- ✅ 참석 확인 폼 -->
 <form id="rsvpForm">
-  <p style="margin-bottom: 10px;">참석 가능하신 분은 아래에 이름을 남겨주세요 💌</p>
-  <input type="text" id="name" placeholder="성함을 적어주세요" required style="margin-bottom: 10px;">
-  <select id="attendance" style="margin-bottom: 10px;">
+  <input type="text" id="name" placeholder="성함을 적어주세요" required>
+  <select id="attendance">
     <option value="참석">참석할게요 😊</option>
     <option value="불참">아쉽지만 어려워요 😢</option>
   </select>
@@ -156,11 +155,25 @@
 
 <!-- ✅ 폼 응답 처리 -->
 <script>
-  document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+  const form = document.getElementById('rsvpForm');
+  form.addEventListener('submit', async function(e) {
     e.preventDefault();
     const name = document.getElementById('name').value;
     const attendance = document.getElementById('attendance').value;
-    document.getElementById('result').innerText = `${name} 님, 응답이 등록되었습니다: ${attendance}`;
+
+    const response = await fetch('https://script.google.com/macros/s/AKfycbzai5i-feY9tA6AYr-HUStK3yt1B0xeVQyFED1CQ9djisBxAYHQqstBERXshDTV0ds-oQ/exec', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: `name=${encodeURIComponent(name)}&attendance=${encodeURIComponent(attendance)}`
+    });
+
+    const resultText = await response.text();
+    if (resultText === 'success') {
+      document.getElementById('result').innerText = `${name} 님, 응답이 저장되었습니다: ${attendance}`;
+      form.reset();
+    } else {
+      document.getElementById('result').innerText = '응답 저장 중 오류가 발생했습니다.';
+    }
   });
 </script>
 
