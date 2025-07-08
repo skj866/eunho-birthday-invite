@@ -98,6 +98,9 @@
       }
     }
   </style>
+  <!-- Swiper 스타일 CDN -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
 </head>
 <body>
 
@@ -121,18 +124,20 @@
      📍 인천광역시 서구 담지로22번길 10 1층 핑크고래 키즈풀<br>
      ⏰ 오후 2시 ~ 5시</p>
 </div>
-
-<!-- 🖼️ 사진 갤러리 -->
-<div class="gallery">
-  <img src="images/eunho-doll2.jpg">
-  <img src="images/eunho-doll3.jpg">
-  <img src="images/eunho-jeju1.jpg">
-  <img src="images/eunho-jeju2.jpg">
-  <img src="images/eunho-jeju3.jpg">
-  <img src="images/eunho-jeju4.jpg">
-  <img src="images/eunho-700.jpg">
-  <img src="images/eunho-house2.jpg.jpg">
-  <img src="images/eunho-house1.jpg">
+<!-- 🖼️ Swiper 슬라이더 갤러리 -->
+<div class="swiper-container" style="margin-top: 20px;">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide"><img src="images/eunho-doll2.jpg" alt="은호1" style="width:100%; border-radius:12px;"></div>
+    <div class="swiper-slide"><img src="images/eunho-doll3.jpg" alt="은호2" style="width:100%; border-radius:12px;"></div>
+    <div class="swiper-slide"><img src="images/eunho-jeju1.jpg" alt="은호3" style="width:100%; border-radius:12px;"></div>
+    <div class="swiper-slide"><img src="images/eunho-jeju2.jpg" alt="은호4" style="width:100%; border-radius:12px;"></div>
+    <div class="swiper-slide"><img src="images/eunho-jeju3.jpg" alt="은호5" style="width:100%; border-radius:12px;"></div>
+    <div class="swiper-slide"><img src="images/eunho-jeju4.jpg" alt="은호6" style="width:100%; border-radius:12px;"></div>
+    <div class="swiper-slide"><img src="images/eunho-700.jpg" alt="은호7" style="width:100%; border-radius:12px;"></div>
+    <div class="swiper-slide"><img src="images/eunho-house2.jpg.jpg" alt="은호8" style="width:100%; border-radius:12px;"></div>
+    <div class="swiper-slide"><img src="images/eunho-house1.jpg" alt="은호9" style="width:100%; border-radius:12px;"></div>
+  </div>
+  <div class="swiper-pagination"></div>
 </div>
 
 <!-- ✅ 참석 확인 폼 -->
@@ -173,6 +178,24 @@
       form.reset();
     } else {
       document.getElementById('result').innerText = '응답 저장 중 오류가 발생했습니다.';
+    }
+  });
+</script>
+<!-- Swiper 스크립트 -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  const swiper = new Swiper('.swiper-container', {
+    loop: true,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    spaceBetween: 20,
+    slidesPerView: 1,
+    centeredSlides: true,
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: false,
     }
   });
 </script>
