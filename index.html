@@ -11,14 +11,15 @@
 
   <title>은호의 두 번째 생일 초대장 🎂</title>
   <style>
-    
-    body {
+    html, body {
       font-family: 'Arial', sans-serif;
       background-color: #fff8f0;
       color: #333;
-      padding: 20px;
+      padding: 0;
       max-width: 600px;
-      margin: auto;
+      margin: 0;
+      overflow-x: hidden;  /* 가로 넘침(overflow-x) 숨기기 */
+      width: 100%;        /* 뷰포트 너비에 딱 맞추기 */
     }
 
     h1, h2, p {
@@ -82,11 +83,6 @@
       margin-bottom: 0;          /* 바닥 마진 제거 */
       padding-bottom: 0;         /* 바닥 패딩 제거 */
     }
-    html, body {
-      margin: 0;
-      padding: 0;
-    }
-
     /* 모바일 반응형 최적화 */
     @media (max-width: 480px) {
       .gallery img {
